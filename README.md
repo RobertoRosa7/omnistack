@@ -1,1 +1,1 @@
-# omnistack
+# OmniStack
