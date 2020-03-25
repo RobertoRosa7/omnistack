@@ -53,3 +53,21 @@
     - RUN `npx knex migrate:make nome_banco_de_dados` - criar arquivo para configuar tabela
     - RUN `npx knex migrate:latest` - para criar tabela depois de configurado no arquivo
     - RUN `npx knex migrate:rollback` - desfazer o último migrate
+
+
+## Terceiro dia - 25/03/2020
+
+* Limpando a estrutura
+* Conceito de React
+    - Components
+    - JSX
+    - Propriedades
+    - Estado
+    - Imutabilidade
+* Pagina de Login
+* Configuração de rotas
+* Cadastro de ONGs
+* Listagem de casos
+* Cadastro de um novo caso
+* Conectando aplicação à API
+* Enviando projeto ao github
