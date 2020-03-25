@@ -1,28 +1,76 @@
 const connection = require('../database/connection');
-const cripto = require('crypto');
 
 module.exports = {
+    async fetchAll(req, res){
+        const { page = 1} = req.query;
+        try{
+            const [ count ] = await connection('incidents').count();
+            const incidents = await connection('incidents')
+                .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
+                .limit(5)
+                .offset((page -1) * 5)
+                .select([
+                    'incidents.*', 
+                    'ongs.nome',
+                    'ongs.email',
+                    'ongs.whatsapp',
+                    'ongs.cidade',
+                    'ongs.uf'
+                ]);
+            res.header('X-Total-Count', count['count(*)']);
+
+            return res.status(200).json(incidents);
+        }catch(e){
+            console.error(e);
+            return res.status(500).json({
+                "status":false,
+                "msg":'Não foi possível listar todos os incidentes.'
+            });
+        }
+    },
     async create(req, res){
         const { titulo, descricao, valor } = req.body;
-        const ongs_id = req.headers.authorization;
+        const ong_id = req.headers.authorization;
 
         try{
-            const [id] = await connection('incidents').insert({
+            await connection('incidents').insert({
                 "titulo":titulo,
                 "descricao":descricao,
                 "valor":valor,
-                "ongs_id":ongs_id
+                "ong_id":ong_id
             });
             return res.status(200).json({
                 "status":true,
                 "msg":'Incidente cadastrado com sucesso.',
-                "id":id
             });
         }catch(e){
+            console.error(e);
             return res.status(500).json({
                 "status":false,
                 "msg":'Não foi possível cadastrar incidente'
             });
+        }
+    },
+    async remove(req, res){
+        const { id } = req.params;
+        const ong_id = req.headers.authorization;
+
+        try{
+            const incident = await connection('incidents').where('id', id).select('ong_id').first();
+            if(incident.ong_id != ong_id){
+                return res.status(401).json({
+                    "status":false,
+                    "msg":'Não authorizado'
+                })
+            }
+            await connection('incidents').where('id', id).delete();
+            return res.status(204).send();
+        }catch(e){
+            console.error(e);
+            return res.status(500).json({
+                "status":false,
+                "msg":'Não foi possivel deletar incidente.'
+            })
         }
     }
 }
