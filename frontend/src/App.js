@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Header from './Header';
+
 /**
  * JSX: integração do HTML dentro do JavaScript
  */
 function App() {
+  // let counter = 0; sem estado reativo
+  // let counter = useState(0); // com estado reativo, mas com imutabilidade
+  
+  // useState return Array = [valor, funcaoDeAtualizacaoDoValor]
+  const [counter, setCounter] = useState(0);
+
+  
+  function increment(){
+    // counter++; // error há imutabilidade devido uso do useState
+    setCounter(counter + 1); // uso da função para atualização do valor
+  }
+
   return (
-   <h1>Hello OmniStack</h1>
+    <div>
+      <Header>Contador: {counter}</Header>
+      <button onClick={increment}>Incrementar</button>
+    </div>
   );
 }
 
