@@ -7,7 +7,7 @@
     margin:0 auto;
     display:flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 .logon .logon-container div.form{
     width:100%;
@@ -21,20 +21,4 @@
 .logon .logon-container div.form form h1{
     font-size:32px;
     margin-bottom: 32px;
-}
-.logon .logon-container div.form form a{
-    display:flex;
-    align-items: center;
-    margin-top: 40px;
-    color: #41414d;
-    font-size:18px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s;
-}
-.logon .logon-container div.form form a svg{
-    margin-right: 8px;
-}
-.logon .logon-container div.form form a:hover{
-    opacity:0.8;
 }

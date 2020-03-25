@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './global.css';
 import Header from './Header';
 import Logon from './pages/logon';
+import Routes from './routes';
 
 /**
  * JSX: integração do HTML dentro do JavaScript
@@ -21,7 +22,9 @@ function App() {
     //   <Header>Contador: {counter}</Header>
     //   <button onClick={increment}>Incrementar</button>
     // </div>
-    <Logon />
+    // <Logon />
+
+    <Routes />
   );
 }
 
