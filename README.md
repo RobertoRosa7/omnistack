@@ -71,3 +71,27 @@
 * Cadastro de um novo caso
 * Conectando aplicação à API
 * Enviando projeto ao github
+
+## Quarto dia - 26/03/2020
+
+* Instalando EXPO
+* Criando projeto React Native
+* Executando projeto
+    - No celular
+    - Emuladores
+    - Expo Snack
+* Diferença entre ReactJS
+    - Elemento HTML
+    - Semântica
+    - Estilização
+        - Flexbox
+        - Propriedades
+        - Herança de estilos
+        - Estilização própria
+* Estrutura de pastas
+* Ícones e splash screen
+* Configurando navegação
+* Página de casos
+* Detalhe do caso
+* Conexão com API
+* Enviando projeto ao Github
