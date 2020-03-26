@@ -75,6 +75,8 @@
 ## Quarto dia - 26/03/2020
 
 * Instalando EXPO
+    - RUN `npm install -g expo-cli` - para instalação
+    - RUN `expo init <nome do projeto>` - para criação de um novo projeto
 * Criando projeto React Native
 * Executando projeto
     - No celular
