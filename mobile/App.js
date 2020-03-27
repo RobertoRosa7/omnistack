@@ -1,24 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Semana OmniStack</Text>
+    // <View style={styles.container}>
+    //   <Text style={styles.texts}>Open up App.js to start working on your app!</Text>
+    // </View>
+    <View>
+      <Text>Open up App.js to start working on your app!</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#7159c1',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title:{
-    color:'#fff',
-    fontSize:25,
-    fontWeight:'bold'
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#323232',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   texts:{
+//     color:'#fff'
+//   }
+// });
