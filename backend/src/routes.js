@@ -15,7 +15,7 @@ const validateCreateOng = {
     [Segments.BODY]:Joi.object().keys({
         nome: Joi.string().required(),
         email: Joi.string().required().email(),
-        whatsapp: Joi.number().required().min(10).max(11),
+        whatsapp: Joi.string().required().min(9).max(15),
         cidade: Joi.string().required(),
         uf: Joi.string().required().length(2)
     })
