@@ -1,5 +1,6 @@
 const connection = require('../database/connection');
 const cripto = require('crypto');
+const generateUniqueId = require('../utils/generateUniqueId');
 
 module.exports = {
     async fetchAll(req, res){
@@ -11,7 +12,8 @@ module.exports = {
         const { nome, cidade, uf, whatsapp, email } = req.body;
             
         // create hash
-        const id = cripto.randomBytes(4).toString('HEX');
+        // const id = cripto.randomBytes(4).toString('HEX');
+        const id = generateUniqueId();
         try{
             // insert data
             await connection('ongs').insert({
