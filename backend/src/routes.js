@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = express.Router();
+const { celebrate, Segments, Joi} = require('celebrate');
 const OngsController = require('./controllers/OngsControllers');
 const IncidentsController = require('./controllers/IncidentsControllers');
 const ProfilesController = require('./controllers/ProfilesControllers');
@@ -9,18 +10,43 @@ routes.get('/', (req, res) => {
     res.json({status:true, msg:"it's works"});
 });
 
+// CREATE OBJECT TO VALIDATE ONG - USE CELEBRATE
+const validateCreateOng = {
+    [Segments.BODY]:Joi.object().keys({
+        nome: Joi.string().required(),
+        email: Joi.string().required().email(),
+        whatsapp: Joi.number().required().min(10).max(11),
+        cidade: Joi.string().required(),
+        uf: Joi.string().required().length(2)
+    })
+}
+const validateHeadersProfile = {
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required()
+    }).unknown()
+}
+const validateParamsID = {
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.number().required()
+    })
+}
+const validateQueryPage = {
+    [Segments.QUERY]: Joi.object().keys({
+        page: Joi.number()
+    })
+}
+
 // ONGS
 routes.get('/ongs', OngsController.fetchAll);
-routes.post('/ongs', OngsController.create);
-
+routes.post('/ongs', celebrate(validateCreateOng), OngsController.create);
 
 // INCIDENTS
 routes.get('/incidents', IncidentsController.fetchAll);
 routes.post('/incidents', IncidentsController.create);
-routes.delete('/incidents/:id', IncidentsController.remove);
+routes.delete('/incidents/:id', celebrate(validateParamsID), IncidentsController.remove);
 
 // PROFILE
-routes.get('/profile', ProfilesController.fetchProfile);
+routes.get('/profile', celebrate(validateHeadersProfile), ProfilesController.fetchProfile);
 
 // SESSION
 routes.post('/sessions', SessionController.create);

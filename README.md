@@ -103,7 +103,7 @@
 * Adicionando validação
 * Adicionando teste
     - Por que fazer teste
-    - TDD
+    - TDD ( test-driven-development )
     - Configurando Jest
     - Configurando Banco de Dados
     - Instalando supertest

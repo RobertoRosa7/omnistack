@@ -23,7 +23,7 @@ module.exports = {
         }catch(e){
             console.error(e);
             return res.status(500).json({
-                "status":false,
+                "statusCode":500,
                 "msg":'Não foi possível listar todos os incidentes.'
             });
         }
@@ -57,9 +57,14 @@ module.exports = {
 
         try{
             const incident = await connection('incidents').where('id', id).select('ong_id').first();
+            if(!incident) res.status(404).json({
+                "statusCode":404,
+                "msg":`Nenhuma ONG foi encontrada com Id ${ong_id}`
+            })
+
             if(incident.ong_id != ong_id){
                 return res.status(401).json({
-                    "status":false,
+                    "statusCode":401,
                     "msg":'Não authorizado'
                 })
             }
@@ -68,7 +73,7 @@ module.exports = {
         }catch(e){
             console.error(e);
             return res.status(500).json({
-                "status":false,
+                "statusCode":500,
                 "msg":'Não foi possivel deletar incidente.'
             })
         }
