@@ -17,7 +17,7 @@ export default StyleSheet.create({
         color:'#737380',
     },
     headerTextBold:{
-        fontWeight:'500'
+        fontWeight:'bold'
     },
     headerWelcome:{
         fontSize:25,

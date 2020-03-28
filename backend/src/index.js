@@ -2,7 +2,7 @@ const express = require('express');
 const routes = require('./routes');
 const cors = require('cors');
 const app = express();
-
+const PORT = 3333;
 app.use(cors());
 /**
  * Request JSON:
@@ -39,4 +39,6 @@ app.use('/api/v1', routes);
    */
 
 
-app.listen(3333);
+app.listen(PORT, () => {
+   console.log(`Server running on ${PORT}`)
+});
