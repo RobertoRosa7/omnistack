@@ -97,3 +97,24 @@
 * Detalhe do caso
 * Conexão com API
 * Enviando projeto ao Github
+
+## Quinto dia 27/03/2020 - Final
+
+* Adicionando validação
+* Adicionando teste
+    - Por que fazer teste
+    - TDD
+    - Configurando Jest
+    - Configurando Banco de Dados
+    - Instalando supertest
+    - Testando rota de autenticação
+* Deploy
+    - Alternativas
+    - Qual escolher
+* Estudos daqui pra frente
+    - Padrão de código ESlinter, Pretier
+    - Autenticação JWT
+    - Styled Component
+* Dicas para aproveitar melhor
+    - Github
+    - Linkedin
