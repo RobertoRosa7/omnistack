@@ -12,6 +12,11 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/v1', routes);
 app.use(errors());
+
+app.post('/api/v1/teste2', (req, res) => {
+   console.log(req.body);
+   res.send({status: true});
+});
 /**
  * Métodos HTTP:
  * 
