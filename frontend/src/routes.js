@@ -6,15 +6,15 @@ import Profile from './pages/profile';
 import NewIncident from './pages/new_incidents';
 
 
-export default function Router(){
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={Logon} />
-                <Route path="/register" component={Register} />
-                <Route path="/profile" component={Profile} />
-                <Route path="/incident/new" component={NewIncident} />
-            </Switch>
-        </BrowserRouter>
-    );
+export default function Router() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Logon} />
+        <Route path="/register" component={Register} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/incident/new" component={NewIncident} />
+      </Switch>
+    </BrowserRouter>
+  );
 }
