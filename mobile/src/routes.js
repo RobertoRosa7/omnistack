@@ -7,13 +7,13 @@ const AppStack = createStackNavigator();
 import Incidents from './pages/incidents';
 import Detail from './pages/detail';
 
-export default function Routes(){
-    return (
-        <NavigationContainer>
-            <AppStack.Navigator screenOptions={ { headerShown: false }}>
-                <AppStack.Screen name="incidents" component={Incidents} />
-                <AppStack.Screen name="detail" component={Detail} />
-            </AppStack.Navigator>
-        </NavigationContainer>
-    );
+export default function Routes() {
+  return (
+    <NavigationContainer>
+      <AppStack.Navigator screenOptions={{ headerShown: false }}>
+        <AppStack.Screen name="incidents" component={Incidents} />
+        <AppStack.Screen name="detail" component={Detail} />
+      </AppStack.Navigator>
+    </NavigationContainer>
+  );
 }
